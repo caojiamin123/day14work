@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>work16事件捕获</title>
+	</head>
+	<body>
+		<input type="button" id="btn" value="按钮" />
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var obtn=document.getElementById("btn");
+			
+			obtn.onclick=function(){
+				alert("1");
+			}
+			
+			obtn.setCapture();
+		}
+	</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>work25拖拽</title>
+		<style type="text/css">
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var obox=document.getElementById("box");
+			
+			obox.onmousedown=function(ev){
+				var oevent=ev||event;
+				var disx=oevent.clientX-obox.offsetLeft;
+				
+				obox.onmousemove=function(ev){
+					var oevent=ev||event;
+					var l=oevent.clientX-disx;
+					obox.style.left=l+"px";
+				}
+				
+				obox.onmouseup=function(){
+					obox.onmousemove=null;
+					obox.onmouseup=null;
+					}
+				}
+		}
+	</script>
+</html>

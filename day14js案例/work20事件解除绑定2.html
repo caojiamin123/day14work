@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>work20事件解除绑定2</title>
+	</head>
+	<body>
+		<input type="button" id="btn1" value="按钮1" />
+	</body>
+	<script type="text/javascript">
+		
+		window.onload=function(){
+			var obtn=document.getElementById("btn1");
+			function show(){
+				alert("1");	
+			}
+			
+			function show1(){
+				alert("2");	
+			}
+			
+			function addevent(obj,sev,fn){
+				if(obj.addEventListener){
+					return obj.addEventListener(sev,fn,false);
+				}else{
+					return obj.attachEvent("on"+sev,fn);
+				}
+			}
+			
+			addevent(obtn,'click',show);
+			addevent(obtn,'click',show1);
+			//obtn.removeEventListener('click',show1,false);
+			//obtn.detachEvent("onclick",show1);
+			
+			function removeevent(obj,sev,fn){
+				if(obj.removeEventListener){
+					return obj.removeEventListener(sev,fn,false);
+				}else{
+					return obj.detach("on"+sev,fn);
+				}
+			}
+			
+			removeevent(obtn,'click',show);
+			removeevent(obtn,'click',show1)
+		}
+		
+	</script>
+</html>

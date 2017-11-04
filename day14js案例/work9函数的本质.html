@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>work9函数的本质</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		/*function show(){
+			alert("1");
+		}
+		show();*/
+		var show=new Function("alert('1')");
+		show();
+	</script>
+</html>

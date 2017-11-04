@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>work21事件下沉</title>
+		<style type="text/css">
+			#box1{
+				width:300px;
+				height:300px;
+			}
+			#box2{
+				width:200px;
+				height:200px;
+			}
+			#box3{
+				width:100px;
+				height:100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box1" style="background:green;">
+			<div id="box2" style="background:yellow">
+				<div id="box3" style="background:red;"></div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		function addevent(obj,sev,fn){
+			if(obj.addEventListener){
+				return obj.addEventListener(sev,fn,false);
+			}else{
+				return obj.attachEvent("on"+sev,fn);
+			}
+		}
+		
+		window.onload=function(){
+			var obox1=document.getElementById("box1");
+			var obox2=document.getElementById("box2");
+			var obox3=document.getElementById("box3");
+			
+			addevent(obox1,'click',function(){
+				alert(this.style.background);
+			})
+			
+			addevent(obox2,'click',function(){
+				alert(this.style.background);
+			})
+			
+			addevent(obox3,'click',function(){
+				alert(this.style.background);
+			})
+			
+		}
+		
+	</script>
+</html>

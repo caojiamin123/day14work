@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>work15事件绑定2</title>
+	</head>
+	<body>
+		<input type="button" id="btn1" value="按钮1" />
+		
+		<input type="button" id="btn2" value="按钮2" />
+	</body>
+	<script type="text/javascript">
+		
+		function addevent(obj,sev,fn){
+			if(obj.addEventListener){
+				return obj.addEventListener(sev,fn,false);
+			}else{
+				return obj.attachEvent("on"+sev,fn);
+			}
+		}
+		
+		function show1(){
+			var obtn2=document.getElementById("btn2");
+			obtn2.onclick=function(){
+				alert(this.value);
+			}
+		}
+		
+		
+		
+		function show2(){
+			var obtn1=document.getElementById("btn1");
+			obtn1.onclick=function(){
+				alert(this.value);
+			}
+		}
+		
+		addevent(window,'load',show1);
+		addevent(window,'load',show2);
+	</script>
+</html>

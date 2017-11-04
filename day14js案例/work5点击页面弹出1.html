@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>work5点击页面弹出1</title>
+	</head>
+	<body>
+		<input type="button" id="btn1" value="按钮1" />
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var obtn=document.getElementById("btn1");
+			
+			obtn.onclick=function(){
+				alert("1");
+			}
+			
+			obtn.onclick=function(){
+				alert("2");
+			}
+		}
+	</script>
+</html>

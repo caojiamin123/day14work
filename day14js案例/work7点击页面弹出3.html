@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>work7点击页面弹出3</title>
+	</head>
+	<body>
+		<input type="button" id="btn1" value="按钮1" />
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var obtn=document.getElementById("btn1");
+			
+			/*obtn.onclick=function(){
+				alert("1");
+			}
+			
+			obtn.onclick=function(){
+				alert("2");
+			}*/
+			
+			function show(){
+				alert("1");
+			}
+			
+			function show1(){
+				alert("2");
+			}
+			obtn.attachEvent('onclick',show);
+			obtn.attachEvent('onclick',show1);
+		}
+	</script>
+</html>

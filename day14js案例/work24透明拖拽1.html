@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>work24透明拖拽1</title>
+		<style type="text/css">
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			.new{
+				width: 100px;
+				height: 100px;
+				background:red;
+				position: absolute;
+				left: 0;
+				top: 0;
+				opacity: .3;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<h3>我是h3</h3>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var obox=document.getElementById("box");
+			
+			obox.onmousedown=function(ev){
+				var oevent=ev||event;
+				var disx=oevent.clientX-obox.offsetLeft;
+				var disy=oevent.clientY-obox.offsetTop;
+				var onew=obox.cloneNode(true);
+				onew.removeAttribute("id");
+				onew.className="new";
+				obox.parentNode.appendChild(onew);
+				
+				document.onmousemove=function(ev){
+					var oevent=ev||event;
+					var l=oevent.clientX-disx;
+					var t=oevent.clientY-disy;
+					onew.style.left=l+"px";
+					onew.style.top=t+"px";
+				}
+				
+				document.onmouseup=function(){
+					document.onmousemove=null;
+					document.onmouseup=null;
+					obox.style.left=onew.offsetLeft+"px";
+					obox.style.top=onew.offsetTop+"px";
+					obox.parentNode.removeChild(onew);
+					obox.releaseCapture&&obox.releaseCapture();
+				}
+				
+				obox.setCapture&&obox.setCapture();
+				return false;	
+			}
+		}
+	</script>
+</html>

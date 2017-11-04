@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>work14事件绑定1</title>
+	</head>
+	<body>
+		<input type="button" id="btn1" value="按钮1" />
+		
+		<input type="button" id="btn2" value="按钮2" />
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var obtn1=document.getElementById("btn1");
+			obtn1.onclick=function(){
+				alert(this.value);
+			}
+		}
+		
+		window.onload=function(){
+			var obtn2=document.getElementById("btn2");
+			obtn2.onclick=function(){
+				alert(this.value);
+			}
+		}
+	</script>
+</html>

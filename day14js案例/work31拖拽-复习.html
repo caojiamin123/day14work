@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>work31拖拽-复习
+		</title>
+		<style type="text/css">
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var obox=document.getElementById("box");
+			
+			obox.onmousedown=function(ev){
+				var oevent=ev||event;
+				var disx=oevent.clientX-obox.offsetLeft;
+				var disy=oevent.clientY-obox.offsetTop;
+				
+				document.onmousemove=function(ev){
+					var oevent=ev||event;
+					var l=oevent.clientX-disx;
+					var t=oevent.clientY-disy;
+					if(l<0){
+						l=0;
+					}else if(l>document.documentElement.clientWidth-obox.offsetWidth){
+						l=document.documentElement.clientWidth-obox.offsetWidth;
+					}
+					if(t<0){
+						t=0;
+					}else if(t>document.documentElement.clientHeight-obox.offsetHeight){
+						l=document.documentElement.clientHeight-obox.offsetHeight;
+					}
+					obox.style.left=l+"px";
+					obox.style.top=t+"px";
+				}
+				
+				document.onmouseup=function(){
+					document.onmousemove=null;
+					document.onmouseup=null;
+					obox.releaseCapture&&obox.releaseCapture();
+					}
+				obox.setCapture&&obox.setCapture();
+				return false;
+				}
+		}
+	</script>
+</html>

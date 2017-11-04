@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>work10函数的本质1</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		/*function show(){
+			alert("1");
+		}
+		show();*/
+		var show=new Function("a","b","alert(a+b)");
+		show(1,2);
+	</script>
+</html>
